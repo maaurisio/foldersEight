@@ -1,0 +1,80 @@
+npm init -y
+npm i express prisma @prisma/client
+npm i --sabe-dev nodemon(actulizar servidor cuando hay cambios)
+
+en cd backend: npm install dotenv (despues de registrar variables locales)
+npm i
+npm i -g nodemon
+
+nodemon src/index.js //IMPORTANTE
+
+variables de entorno
+en el docker compose se puede crear varias imagenes, pero en el mismo comando se puede crear una sola (?)
+
+en backend: npm install prisma @prisma/client
+	    npx prisma init
+
+forzar la recreación:
+docker-compose up -d --force-recreate/ docker compose down       
+docker-compose up -d --build
+
+npm install prisma@6 @prisma/client@6
+npx prisma migrate dev --name init   (debe estar creado el servicio de mysql)
+
+repository -> service -> controller
+
+CORS: (en backend)npm install axios
+		  npm install cors
+
+
+comandos:
+npm init -y
+npm install express @prisma/client
+npm install -D prisma nodemon
+
+mkdir src\repositories src\controllers src\routes src\services
+mkdir prisma
+type nul > src\index.js
+type nul > prisma/schema.prisma
+type nul > .env & type nul > .env.prod & type nul > .gitignore
+type nul > Dockerfile & type nul > docker-compose.yml & type nul > README.md
+
+
+
+-----------------------DESPUES DE LA PLANTILLA
+npx prisma init
+npx prisma generate dev
+
+despues de crear modelo (corre desde doocker porque desde localhost no funciona):
+docker exec -it backend-backend-1 npx prisma migrate dev --name init
+
+mkdir src\repositories src\controllers src\routes src\services
+
+repository -> services -> controller -> routes -> index.js
+
+para obtener los datos primero ver si hay las tablas****:
+http://localhost:3000/api/tareas
+
+CORS (bloqueo):
+1. npm install axios
+2. config/testApi.js
+	probar: node src/config/tesApi.js
+
+.ENV:
+CORS_ORIGIN=http://localhost:3000
+
+**axios
+try/ catch
+async
+await
+promesa
+sincronia
+SALT ROUNDS = saltos de encriptacion
+revocar tokens
+
+
+
+-----------------------JWT
+cd backend
+npm install bcrypt jsonwebtoken
+repository -> services (auth) -> controller(auth) -> routes (auth)
