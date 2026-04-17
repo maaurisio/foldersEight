@@ -47,8 +47,11 @@ npx prisma generate dev
 
 despues de crear modelo (corre desde doocker porque desde localhost no funciona):
 docker exec -it backend-backend-1 npx prisma migrate dev --name init
+#conexion entre bd y codigo
+docker-compose exec backend npx prisma generate
 
-mkdir src\repositories src\controllers src\routes src\services
+
+mkdir src\repositories src\controllers src\routes src\services src\middleware src\config
 
 repository -> services -> controller -> routes -> index.js
 
@@ -71,10 +74,20 @@ promesa
 sincronia
 SALT ROUNDS = saltos de encriptacion
 revocar tokens
-
+en authmiddleware donde se define el rol que se puede autorizar
+SCALAR
 
 
 -----------------------JWT
 cd backend
 npm install bcrypt jsonwebtoken
 repository -> services (auth) -> controller(auth) -> routes (auth)
+
+
+blacklist:
+
+modelo -> migrar
+repositories -> tokenBlacklist.js
+
+SCALAR:
+npm install @scalar/express-api-reference
