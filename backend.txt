@@ -24,7 +24,6 @@ CORS_ORIGIN=http://localhost:3000
 
 npm install
 
-npx prisma init # Crear carpeta prisma/ y schema.prisma
 
 ## definir modelo (usuario)
 
