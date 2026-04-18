@@ -51,6 +51,7 @@ docker exec -it backend-backend-1 npx prisma generate                  # Generar
 docker exec -it backend-backend-1 npx prisma studio    ## visualizar
 
 (apagar y prender los servicios*)
+probar nodemon
 
 
 CODIGO---------
