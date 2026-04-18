@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const tareaController = require('../controllers/tareaController');
 const { autorizeRoles } = require('../middleware/rolMiddleware');
-const verifyToken = require('../services/authService').verifyToken;
+const verifyToken = require('../middleware/authMiddleware').verifyToken;
 
 
 router.get('/tareas', verifyToken, tareaController.getTareas);
