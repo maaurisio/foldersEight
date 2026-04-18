@@ -1,0 +1,43 @@
+openapi: 1.0.0
+info:
+    title: API de Tareas
+    version: 1.0.0
+    description: API para gestionar tareas con autenticación y autorización
+
+servers:
+  - url: http://localhost:3000
+    description: Servidor local
+
+paths:
+  /api/login:
+     post:
+      summary: Iniciar sesión
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+                  example: user
+                rol:
+                  type: string
+                  example: admin
+
+        responses:
+          '200':
+            description: usuario registrado exitosamente
+          '500':
+            description: Error en el servidor
+
+  components:
+    securitySchemes:
+      bearerAuth:
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
