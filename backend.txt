@@ -50,6 +50,15 @@ docker exec -it backend-backend-1 npx prisma migrate dev --name init   # Crear B
 docker exec -it backend-backend-1 npx prisma generate                  # Generar cliente
 docker exec -it backend-backend-1 npx prisma studio    ## visualizar
 
+(apagar y prender los servicios*)
+
+
+CODIGO---------
+mkdir src\repositories src\controllers src\routes src\services src\middleware src\config 
+
+repository -> services -> controller -> routes -> index.js
+
+
 ## SCALAR
 docker exec -it backend-backend-1 npm install @scalar/express-api-reference
 
