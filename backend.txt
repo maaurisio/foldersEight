@@ -85,3 +85,33 @@ GET http://localhost:3000/test-db
 * Usa el nombre real del contenedor (`docker ps`)
 * `prisma init` solo una vez
 
+
+//insomnia (variables de entorno)
+1. Configurar el Entorno (Una sola vez)
+{
+  "mi_token": ""
+}
+
+2. Configurar el LOGIN (Capturar el Token)
+Ve a tu petición de Login.
+Entra en la pestaña Scripts -> After-response.
+Pega este código:
+
+const body = JSON.parse(insomnia.response.body);
+if (body.token) {
+    insomnia.environment.set("mi_token", body.token);
+}
+
+
+3. Usar el Token en las rutas protegidas
+Ve a registrar Tarea (o cualquier ruta que pida token).
+En la pestaña Auth, selecciona Bearer Token.
+En el campo "Token", escribe literalmente: {{ mi_token }}.
+Tip: Si se pone azul, está bien vinculada.
+
+4. Configurar el LOGOUT (Limpiar el acceso)
+Ve a tu petición de Logout.
+Entra en la pestaña Scripts -> After-response.
+Pega este código:
+
+insomnia.environment.set("mi_token", "");
