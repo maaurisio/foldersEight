@@ -21,15 +21,6 @@ JWT_SECRET=ultresecretkeyforproduction
 DATABASE_URL=mysql://root:root@mysql:3306/mydb
 CORS_ORIGIN=http://localhost:3000
 
-## .env.prod:
-NODE_ENV=production
-PORT=3000
-DB_HOST=mysql
-DB_USER=root
-DB_PASSWORD=root
-DB_NAME=mydb
-JWT_SECRET=ultresecretkeyforproduction
-
 
 npm install
 
@@ -41,6 +32,12 @@ model Usuario {
   id       Int     @id @default(autoincrement())
   email    String  @unique
   password String
+}
+
+model TokenRevocado {
+  id          Int      @id @default(autoincrement())
+  token       String
+  createAt    DateTime @default(now())
 }
 
 docker-compose down -v # borrar volumen
